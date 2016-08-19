@@ -1,0 +1,42 @@
+15:18:53 **** Incremental Build of configuration Release for project Debug_RMS ****
+make all 
+Building file: ../src/DiscreteRMS.c
+Invoking: AVR Compiler
+avr-gcc -I/usr/local/Cellar/avr-libc/1.8.1/avr/include -I/Users/robertirwin/Documents/MyC_HeaderFiles/AtMega328P/AtMega328P -I/Users/robertirwin/Documents/MyC_HeaderFiles/DiscreteRMS/DiscreteRMS -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/DiscreteRMS.d" -MT"src/DiscreteRMS.o" -c -o "src/DiscreteRMS.o" "../src/DiscreteRMS.c"
+Finished building: ../src/DiscreteRMS.c
+ 
+Building target: Debug_RMS.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Debug_RMS.map -mmcu=atmega328p -o "Debug_RMS.elf"  ./src/AtMega328P_UART.o ./src/DiscreteRMS.o ./src/main.o   -lm
+Finished building target: Debug_RMS.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Debug_RMS.elf  >"Debug_RMS.lss"
+Finished building: Debug_RMS.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Debug_RMS.elf  "Debug_RMS.hex"
+Finished building: Debug_RMS.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Debug_RMS.elf  "Debug_RMS.eep"
+Finished building: Debug_RMS.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p Debug_RMS.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:    1650 bytes (5.0% Full)
+(.text + .data + .bootloader)
+
+Data:         26 bytes (1.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+15:18:53 Build Finished (took 186ms)
+

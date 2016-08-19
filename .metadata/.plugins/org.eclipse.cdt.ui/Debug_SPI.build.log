@@ -1,0 +1,7 @@
+17:36:00 **** Clean-only build of configuration Release for project Debug_SPI ****
+make clean 
+rm -rf  Debug_SPI.hex  ./src/AtMega328P_SPI.o ./src/main.o  Debug_SPI.eep  sizedummy  Debug_SPI.lss  ./src/AtMega328P_SPI.d ./src/main.d  Debug_SPI.elf
+ 
+
+17:36:01 Build Finished (took 143ms)
+

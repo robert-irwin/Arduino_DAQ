@@ -1,0 +1,42 @@
+10:16:39 **** Incremental Build of configuration Release for project Debug_w5500 ****
+make all 
+Building file: ../src/main.c
+Invoking: AVR Compiler
+avr-gcc -I/usr/local/Cellar/avr-libc/1.8.1/avr/include -I/Users/robertirwin/Documents/MyC_HeaderFiles/AtMega328P/AtMega328P -I/Users/robertirwin/Documents/MyC_HeaderFiles/W5500/W5500 -I/Users/robertirwin/Documents/MyC_HeaderFiles/CircularBuff/CircularBuff -I/Users/robertirwin/Documents/MyC_HeaderFiles/DiscreteRMS/DiscreteRMS -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+Finished building: ../src/main.c
+ 
+Building target: Debug_w5500.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Debug_w5500.map -mmcu=atmega328p -o "Debug_w5500.elf"  ./src/AtMega328P_SPI.o ./src/AtMega328P_UART.o ./src/CircularBuff.o ./src/DiscreteRMS.o ./src/main.o ./src/w5500.o   
+Finished building target: Debug_w5500.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Debug_w5500.elf  >"Debug_w5500.lss"
+Finished building: Debug_w5500.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Debug_w5500.elf  "Debug_w5500.hex"
+Finished building: Debug_w5500.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Debug_w5500.elf  "Debug_w5500.eep"
+Finished building: Debug_w5500.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p Debug_w5500.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:    5814 bytes (17.7% Full)
+(.text + .data + .bootloader)
+
+Data:        405 bytes (19.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+10:16:39 Build Finished (took 177ms)
+

@@ -1,0 +1,62 @@
+12:59:44 **** Build of configuration Release for project Arduino_DAQ_and_RMS ****
+make all 
+Building file: ../src/AtMega328P_UART.c
+Invoking: AVR Compiler
+avr-gcc -I/usr/local/Cellar/avr-libc/1.8.1/avr/include -I/Users/robertirwin/Documents/MyC_HeaderFiles/AtMega328P/AtMega328P -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/AtMega328P_UART.d" -MT"src/AtMega328P_UART.o" -c -o "src/AtMega328P_UART.o" "../src/AtMega328P_UART.c"
+Finished building: ../src/AtMega328P_UART.c
+ 
+Building file: ../src/main.c
+Invoking: AVR Compiler
+avr-gcc -I/usr/local/Cellar/avr-libc/1.8.1/avr/include -I/Users/robertirwin/Documents/MyC_HeaderFiles/AtMega328P/AtMega328P -Wall -Os -fpack-struct -fshort-enums -ffunction-sections -fdata-sections -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega328p -DF_CPU=16000000UL -MMD -MP -MF"src/main.d" -MT"src/main.o" -c -o "src/main.o" "../src/main.c"
+../src/main.c: In function '__vector_21':
+../src/main.c:78:9: warning: passing argument 1 of 'USART328P_Transmit' discards 'volatile' qualifier from pointer target type [enabled by default]
+         USART328P_Transmit(&ADCL,1);
+         ^
+In file included from ../src/main.c:13:0:
+/Users/robertirwin/Documents/MyC_HeaderFiles/AtMega328P/AtMega328P/AtMega328P_UART.h:29:6: note: expected 'char *' but argument is of type 'volatile uint8_t *'
+ void USART328P_Transmit( char* data, int num_bytes);
+      ^
+../src/main.c:79:9: warning: passing argument 1 of 'USART328P_Transmit' discards 'volatile' qualifier from pointer target type [enabled by default]
+         USART328P_Transmit(&ADCH, 1);
+         ^
+In file included from ../src/main.c:13:0:
+/Users/robertirwin/Documents/MyC_HeaderFiles/AtMega328P/AtMega328P/AtMega328P_UART.h:29:6: note: expected 'char *' but argument is of type 'volatile uint8_t *'
+ void USART328P_Transmit( char* data, int num_bytes);
+      ^
+Finished building: ../src/main.c
+ 
+Building target: Arduino_DAQ_and_RMS.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Arduino_DAQ_and_RMS.map -mmcu=atmega328p -o "Arduino_DAQ_and_RMS.elf"  ./src/AtMega328P_UART.o ./src/main.o   
+Finished building target: Arduino_DAQ_and_RMS.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Arduino_DAQ_and_RMS.elf  >"Arduino_DAQ_and_RMS.lss"
+Finished building: Arduino_DAQ_and_RMS.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -R .fuse -R .lock -R .signature -O ihex Arduino_DAQ_and_RMS.elf  "Arduino_DAQ_and_RMS.hex"
+Finished building: Arduino_DAQ_and_RMS.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Arduino_DAQ_and_RMS.elf  "Arduino_DAQ_and_RMS.eep"
+Finished building: Arduino_DAQ_and_RMS.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p Arduino_DAQ_and_RMS.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:     408 bytes (1.2% Full)
+(.text + .data + .bootloader)
+
+Data:          2 bytes (0.1% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+12:59:45 Build Finished (took 647ms)
+

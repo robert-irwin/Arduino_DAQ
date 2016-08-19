@@ -1,0 +1,20 @@
+17:32:50 **** Incremental Build of configuration Release for project Sample_Client ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p Sample_Client.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:    2460 bytes (7.5% Full)
+(.text + .data + .bootloader)
+
+Data:         65 bytes (3.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+17:32:50 Build Finished (took 83ms)
+

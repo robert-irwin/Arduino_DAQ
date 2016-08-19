@@ -1,0 +1,20 @@
+14:25:15 **** Incremental Build of configuration Release for project Arduino_DAQ ****
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega328p Arduino_DAQ.elf
+AVR Memory Usage
+----------------
+Device: atmega328p
+
+Program:    5852 bytes (17.9% Full)
+(.text + .data + .bootloader)
+
+Data:         81 bytes (4.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+14:25:16 Build Finished (took 75ms)
+
